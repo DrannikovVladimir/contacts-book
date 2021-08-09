@@ -1,5 +1,5 @@
 {
-  "name": "frontend_l4_chat_project",
+  "name": "contacts_book",
   "version": "0.0.1",
   "description": "",
   "main": "server/index.js",
@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git@github.com:hexlet-components/projects-frontend-l4-server.git"
   },
-  "author": "Kirill Mokevnin",
+  "author": "Vladimir Drannikov",
   "license": "ISC",
   "homepage": "",
   "dependencies": {

@@ -2,7 +2,7 @@
 
 ## Requirements
 
-* [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+* [Contacts Book](https://pure-earth-87671.herokuapp.com/)
 
 ## Install
 
