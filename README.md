@@ -1,8 +1,6 @@
 # Contacts Book   
 
-## Requirements
-
-* [Site](https://stormy-fjord-45497.herokuapp.com/)
+[Site](https://stormy-fjord-45497.herokuapp.com/)
 
 ## Install
 
