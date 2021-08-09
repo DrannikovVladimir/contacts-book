@@ -2,7 +2,7 @@
 
 ## Requirements
 
-* [Contacts Book](https://pure-earth-87671.herokuapp.com/)
+* [Site](https://stormy-fjord-45497.herokuapp.com/)
 
 ## Install
 
