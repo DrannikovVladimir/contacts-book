@@ -20,6 +20,9 @@
   "author": "Vladimir Drannikov",
   "license": "ISC",
   "homepage": "",
+  "optionalDependencies": {
+    "fsevents": "2.1.2"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
     "axios": "^0.21.1",
