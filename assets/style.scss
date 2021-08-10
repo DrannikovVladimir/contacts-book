@@ -191,11 +191,29 @@ input[type="radio"].visually-hidden {
   border: 1px solid gray;
 }
 
+.form-login__input--error {
+  border-color: tomato;
+}
+
 .form-login__button {
   padding: 10px 20px;
 
   font-size: 14px;
   text-transform: uppercase;
+}
+
+.form-login__feedback {
+  display: none;
+  margin-bottom: 10px;
+  margin-top: -10px;
+
+  font-size: 14px;
+  line-height: 16px;
+  color: tomato;
+}
+
+.form-login__feedback--show {
+  display: block;
 }
 
 .form-remove__text {
