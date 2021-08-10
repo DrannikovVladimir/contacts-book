@@ -23,7 +23,6 @@ const RenameForm = ({ onHide }) => {
       },
     },
   } = useSelector((state) => state.modal);
-  console.log(phoneNumber);
   const formik = useFormik({
     initialValues: {
       firstName,
