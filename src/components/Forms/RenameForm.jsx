@@ -3,9 +3,11 @@ import React, { useRef, useEffect } from 'react';
 import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
+import cn from 'classnames';
 
 import { renameContact } from '../../slices/contactSlice.js';
 import routes from '../../routes.js';
+import validationSchema from '../../validate.js';
 
 const RenameForm = ({ onHide }) => {
   const dispatch = useDispatch();
@@ -26,7 +28,9 @@ const RenameForm = ({ onHide }) => {
       lastName,
       phoneNumber,
     },
-    onSubmit: async (values) => {
+    validationSchema,
+    onSubmit: async (values, actions) => {
+      actions.setStatus(false);
       const newContact = {
         firstName: values.firstName,
         lastName: values.lastName,
@@ -35,14 +39,26 @@ const RenameForm = ({ onHide }) => {
       };
       try {
         const { data } = await axios.patch(routes.renamePath(id), newContact);
-        console.log(data);
         dispatch(renameContact({ contacts: data }));
         onHide();
       } catch (err) {
-        console.log(err);
+        actions.setStatus(true);
+        inputRef.current.select();
         throw new Error('err');
       }
     },
+  });
+
+  const classFirstName = cn('form-add__input', {
+    'form-add__input--error': formik.errors.firstName,
+  });
+
+  const classLastName = cn('form-add__input', {
+    'form-add__input--error': formik.errors.lastName,
+  });
+
+  const classPhoneNumber = cn('form-add__input', {
+    'form-add__input--error': formik.errors.phoneNumber,
   });
 
   useEffect(() => {
@@ -54,40 +70,59 @@ const RenameForm = ({ onHide }) => {
       <div className="form-add__group">
         <label className="form-add__label" htmlFor="firstName">Имя</label>
         <input
-          className="form-add__input"
+          className={classFirstName}
           type="text"
           id="firstName"
           name="firstName"
           onChange={formik.handleChange}
           value={formik.values.firstName}
           ref={inputRef}
+          disabled={formik.isSubmitting}
         />
+        {formik.errors.firstName && formik.touched.firstName ? <div className="form-add__feedback">{formik.errors.firstName}</div> : null}
       </div>
       <div className="form-add__group">
         <label className="form-add__label" htmlFor="lastName">Фамилия</label>
         <input
-          className="form-add__input"
+          className={classLastName}
           type="text"
           id="lastName"
           name="lastName"
           onChange={formik.handleChange}
           value={formik.values.lastName}
+          disabled={formik.isSubmitting}
         />
+        {formik.errors.firstName && formik.touched.lastName ? <div className="form-add__feedback">{formik.errors.lastName}</div> : null}
       </div>
       <div className="form-add__group">
         <label className="form-add__label" htmlFor="phoneNumber">Телефон</label>
         <input
-          className="form-add__input"
+          className={classPhoneNumber}
           type="number"
           id="phoneNumber"
           name="phoneNumber"
           onChange={formik.handleChange}
           value={formik.values.phoneNumber}
+          disabled={formik.isSubmitting}
         />
+        {formik.errors.firstName && formik.touched.phoneNumber ? <div className="form-add__feedback">{formik.errors.phoneNumber}</div> : null}
       </div>
       <div className="form-add__button-wrapper">
-        <button onClick={onHide} className="btn form-add__button form-add__button--cancel" type="button">Отменить</button>
-        <button className="btn form-add__button form-add__button--success" type="submit">Изменить</button>
+        <button
+          onClick={onHide}
+          className="btn form-add__button form-add__button--cancel"
+          type="button"
+          disabled={formik.isSubmitting}
+        >
+          Отменить
+        </button>
+        <button
+          className="btn form-add__button form-add__button--success"
+          type="submit"
+          disabled={formik.isSubmitting}
+        >
+          Изменить
+        </button>
       </div>
     </form>
   );

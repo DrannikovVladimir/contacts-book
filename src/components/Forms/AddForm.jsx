@@ -3,11 +3,11 @@ import React, { useRef, useEffect } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import * as Yup from 'yup';
 import cn from 'classnames';
 
 import { addContact } from '../../slices/contactSlice.js';
 import router from '../../routes.js';
+import validationSchema from '../../validate.js';
 
 const AddForm = ({ onHide }) => {
   const dispatch = useDispatch();
@@ -18,19 +18,7 @@ const AddForm = ({ onHide }) => {
       lastName: '',
       phoneNumber: '',
     },
-    validationSchema: Yup.object().shape({
-      firstName: Yup.string()
-        .min(3, 'Имя должно быть больше 3 символов')
-        .max(15, 'Имя должно быть меньше 15 символов')
-        .required('Обязательное поле'),
-      lastName: Yup.string()
-        .min(3, 'Фамилия должна быть больше 3 символов')
-        .max(15, 'Фамилия должна быть меньше 15 символов')
-        .required('Обязательное поле'),
-      phoneNumber: Yup.string()
-        .min(6, 'Пароль должен быть больше 6 символов')
-        .required('Обязательное поле'),
-    }),
+    validationSchema,
     onSubmit: async (values, actions) => {
       actions.setStatus(false);
       const contact = {
