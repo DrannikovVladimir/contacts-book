@@ -1,5 +1,5 @@
 install:
-  npm ci
+	npm ci
 
 start:
 	heroku local -f Procfile.dev
