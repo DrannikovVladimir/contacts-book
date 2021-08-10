@@ -1,21 +1,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import { useFormik } from 'formik';
-import { useSelector, useDispatch } from 'react-redux';
-import { setInitialState, searchContact } from '../../slices/contactSlice.js';
-import routes from '../../routes.js';
-import contactsSelector from '../../slices/selectors.js';
+import { useDispatch } from 'react-redux';
+import { searchContact } from '../../slices/contactSlice.js';
 
 const SearchForm = () => {
   const dispatch = useDispatch();
-  const { contacts, filteredContacts } = useSelector(contactsSelector);
   const [value, setValue] = useState('');
 
   const handleFormSearch = (e) => {
-    console.log(contacts);
-    console.log(filteredContacts);
     setValue(e.target.value);
-    dispatch(searchContact({ value }));
+    dispatch(searchContact({ value: e.target.value }));
   };
 
   return (

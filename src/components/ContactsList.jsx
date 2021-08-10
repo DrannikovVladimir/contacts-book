@@ -6,15 +6,17 @@ import contactsSelector from '../slices/selectors.js';
 
 const ContactsList = () => {
   const dispatch = useDispatch();
-  const { contacts } = useSelector(contactsSelector);
+  const { contacts, filteredContacts, status } = useSelector(contactsSelector);
 
   const showModal = (type, target) => () => {
     dispatch(modalOpen({ type, target }));
   };
 
+  const contactsList = status === 'default' ? contacts : filteredContacts;
+
   return (
     <ul className="contacts-list">
-      {contacts.map(({
+      {contactsList.map(({
         firstName,
         lastName,
         phoneNumber,

@@ -24,7 +24,6 @@ const AddForm = ({ onHide }) => {
       };
       try {
         const { data } = await axios.post(router.addPath(), contact);
-        console.log(data);
         dispatch(addContact({ contact: data }));
         actions.resetForm();
         onHide();

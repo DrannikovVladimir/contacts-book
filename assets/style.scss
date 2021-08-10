@@ -3,13 +3,6 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 .btn {
@@ -171,6 +164,8 @@ input[type="radio"].visually-hidden {
 }
 
 .form-login__wrapper {
+  width: 250px;
+  margin: 0 auto;
   padding: 40px 20px;
 }
 
