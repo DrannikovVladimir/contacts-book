@@ -9,8 +9,7 @@ const validationSchema = Yup.object().shape({
     .min(3, 'Фамилия должна быть больше 3 символов')
     .max(15, 'Фамилия должна быть меньше 15 символов')
     .required('Обязательное поле'),
-  phoneNumber: Yup.number()
-    .min(6, 'Пароль должен быть больше 6 символов')
+  phoneNumber: Yup.string()
     .required('Обязательное поле'),
 });
 

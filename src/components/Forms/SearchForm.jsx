@@ -23,6 +23,7 @@ const SearchForm = () => {
           className="form-search__input"
           onChange={handleFormSearch}
           value={value}
+          placeholder="Введите имя или фамилию"
         />
       </div>
     </form>

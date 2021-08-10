@@ -29,10 +29,12 @@ const ContactsPage = () => {
 
   return (
     <div className="contacts__content">
-      <SearchForm />
+      <div className="contacts__wrapper">
+        <SearchForm />
+        <DeskFunction />
+      </div>
       <div className="contacts__wrapper">
         <ContactsList />
-        <DeskFunction />
       </div>
     </div>
   );

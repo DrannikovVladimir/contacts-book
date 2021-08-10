@@ -10,10 +10,10 @@ const DeskFunction = () => {
   };
 
   return (
-    <div className="contacts__desc desc-function">
+    <div className="desc-function">
       <button
         onClick={showModal('adding')}
-        className="desc-function__button btn btn--add"
+        className="desc-function__button btn"
         type="button"
       >
         Добавить новый контакт

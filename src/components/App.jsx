@@ -29,7 +29,8 @@ const UserProvider = ({ children }) => {
     localStorage.setItem('userId', JSON.stringify(userdata));
     setUser(userdata);
   };
-  const logOut = () => {
+  const logOut = (e) => {
+    e.preventDefault();
     localStorage.removeItem('userId');
     setUser(null);
   };

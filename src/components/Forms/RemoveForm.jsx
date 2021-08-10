@@ -24,11 +24,13 @@ const RemoveForm = ({ onHide }) => {
     <div className="form-remove">
       <p className="form-remove__text">
         Вы хотите удалить
+        {' '}
         <b>
           {firstName}
           {lastName}
         </b>
-        из списка конатктов?
+        {' '}
+        изсписка контактов?
       </p>
       <div className="form-remove__button-wrapper">
         <button

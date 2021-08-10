@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import cn from 'classnames';
+import InputMask from 'react-input-mask';
 
 import { addContact } from '../../slices/contactSlice.js';
 import router from '../../routes.js';
@@ -86,9 +87,10 @@ const AddForm = ({ onHide }) => {
       </div>
       <div className="form-add__group">
         <label className="form-add__label" htmlFor="phoneNumber">Телефон</label>
-        <input
+        <InputMask
+          mask="(999) 999 99 99"
           className={classPhoneNumber}
-          type="number"
+          type="text"
           id="phoneNumber"
           name="phoneNumber"
           onChange={formik.handleChange}

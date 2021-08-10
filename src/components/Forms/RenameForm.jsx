@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import cn from 'classnames';
+import InputMask from 'react-input-mask';
 
 import { renameContact } from '../../slices/contactSlice.js';
 import routes from '../../routes.js';
@@ -22,6 +23,7 @@ const RenameForm = ({ onHide }) => {
       },
     },
   } = useSelector((state) => state.modal);
+  console.log(phoneNumber);
   const formik = useFormik({
     initialValues: {
       firstName,
@@ -96,16 +98,17 @@ const RenameForm = ({ onHide }) => {
       </div>
       <div className="form-add__group">
         <label className="form-add__label" htmlFor="phoneNumber">Телефон</label>
-        <input
+        <InputMask
+          mask="(999) 999 99 99"
           className={classPhoneNumber}
-          type="number"
+          type="text"
           id="phoneNumber"
           name="phoneNumber"
           onChange={formik.handleChange}
           value={formik.values.phoneNumber}
           disabled={formik.isSubmitting}
         />
-        {formik.errors.firstName && formik.touched.phoneNumber ? <div className="form-add__feedback">{formik.errors.phoneNumber}</div> : null}
+        {formik.errors.phoneNumber && formik.touched.phoneNumber ? <div className="form-add__feedback">{formik.errors.phoneNumber}</div> : null}
       </div>
       <div className="form-add__button-wrapper">
         <button

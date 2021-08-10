@@ -8,7 +8,8 @@ const ContactsList = () => {
   const dispatch = useDispatch();
   const { contacts, filteredContacts, status } = useSelector(contactsSelector);
 
-  const showModal = (type, target) => () => {
+  const showModal = (type, target) => (e) => {
+    e.preventDefault();
     dispatch(modalOpen({ type, target }));
   };
 
@@ -24,37 +25,37 @@ const ContactsList = () => {
       }, index) => (
         <li key={id} className="contacts-list__item">
           <p className="contacts-list__number">
-            {index + 1}
+            {index + 1}{'.'}
           </p>
           <div className="contacts-list__text-wrapper">
             <p className="contacts-list__text">
-              {lastName} {firstName}
+              {lastName}{' '}{firstName}
             </p>
             <p className="contacts-list__text">
-              +
+              +7{' '}
               {phoneNumber}
             </p>
           </div>
-          <div className="contacts-list__button-wrapper">
-            <button
+          <div className="contacts-list__link-wrapper">
+            <a
+              href="/edit"
               onClick={showModal('renaming', {
                 lastName,
                 firstName,
                 phoneNumber,
                 id,
               })}
-              className="contacts-list__button contacts-list__button--edit"
-              type="button"
+              className="contacts-list__link contacts-list__link--edit"
             >
               Редактировать
-            </button>
-            <button
+            </a>
+            <a
+              href="/remove"
               onClick={showModal('removing', { lastName, firstName, id })}
-              className="contacts-list__button contacts-list__button--remove"
-              type="button"
+              className="contacts-list__link contacts-list__link--remove"
             >
               Удалить
-            </button>
+            </a>
           </div>
         </li>
       ))}
