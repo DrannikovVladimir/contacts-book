@@ -150,6 +150,17 @@ input[type="radio"].visually-hidden {
   border: 1px solid gray;
 }
 
+.form-add__input--error {
+  border-color: tomato;
+}
+
+.form-add__feedback {
+  margin-top: 3px;
+
+  font-size: 12px;
+  color: tomato;
+}
+
 .form-add__button-wrapper {
   display: flex;
   justify-content: space-between;
