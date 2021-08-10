@@ -29,10 +29,10 @@ const buildState = (defaultState) => {
   };
 
   if (defaultState.contacts) {
-    state.contacts.push(...defaultState.contacts);
+    state.contacts.unshift(...defaultState.contacts);
   }
   if (defaultState.users) {
-    state.users.push(...defaultState.users);
+    state.users.unshift(...defaultState.users);
   }
 
   return state;
@@ -49,7 +49,7 @@ export default (app, defaultState = {}) => {
       phoneNumber,
       id: getNextId(),
     };
-    state.contacts.push(contact);
+    state.contacts.unshift(contact);
     reply.code(201).send(contact);
   });
 

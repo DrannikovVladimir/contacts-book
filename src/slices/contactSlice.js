@@ -16,7 +16,7 @@ export const contactsSlice = createSlice({
     },
     addContact: (state, { payload }) => {
       const { contact } = payload;
-      state.contacts.push(contact);
+      state.contacts.unshift(contact);
       state.status = 'default';
     },
     removeContact: (state, { payload }) => {
