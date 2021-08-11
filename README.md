@@ -3,7 +3,7 @@
 
 # Contacts Book   
 
-[Site](https://stormy-fjord-45497.herokuapp.com/)
+[Simple application](https://stormy-fjord-45497.herokuapp.com/) for adding, deleting and editing contacts.
 
 ## Install
 
@@ -17,3 +17,6 @@ $ make install
 $ make start
 # open http://localhost:5000
 ```
+## Used   
+   
+To enter the application username and password - **admin**   
