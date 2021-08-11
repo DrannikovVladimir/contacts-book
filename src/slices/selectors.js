@@ -1,3 +1,2 @@
-const contactsSelector = ((state) => state.contacts);
-
-export default contactsSelector;
+export const contactsSelector = ((state) => state.contacts);
+export const modalSelector = ((state) => state.modal);

@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { removeContact } from '../../slices/contactSlice';
 import routes from '../../routes';
+import { modalSelector } from '../../slices/selectors.js';
 
 const RemoveForm = ({ onHide }) => {
   const dispatch = useDispatch();
-  const { modal: { target } } = useSelector((state) => state.modal);
+  const { modal: { target } } = useSelector(modalSelector);
   const { firstName, lastName, id } = target;
 
   const handleRemove = (contactId) => async () => {

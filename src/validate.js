@@ -10,6 +10,7 @@ const validationSchema = Yup.object().shape({
     .max(15, 'Фамилия должна быть меньше 15 символов')
     .required('Обязательное поле'),
   phoneNumber: Yup.string()
+    .matches(/\(\d{3}\) \d{3} \d{2} \d{2}/, 'Некорректно введён номер')
     .required('Обязательное поле'),
 });
 

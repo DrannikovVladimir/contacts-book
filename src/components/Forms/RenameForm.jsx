@@ -9,6 +9,7 @@ import InputMask from 'react-input-mask';
 import { renameContact } from '../../slices/contactSlice.js';
 import routes from '../../routes.js';
 import validationSchema from '../../validate.js';
+import { modalSelector } from '../../slices/selectors.js';
 
 const RenameForm = ({ onHide }) => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const RenameForm = ({ onHide }) => {
         phoneNumber,
       },
     },
-  } = useSelector((state) => state.modal);
+  } = useSelector(modalSelector);
   const formik = useFormik({
     initialValues: {
       firstName,
