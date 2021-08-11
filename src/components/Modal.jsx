@@ -10,11 +10,11 @@ const Modal = () => {
 
   const hideModal = () => {
     dispatch(modalClose());
-  }
+  };
 
   const renderForm = (type) => {
     if (!type) {
-      return;
+      return null;
     }
 
     const Form = getForm(type);

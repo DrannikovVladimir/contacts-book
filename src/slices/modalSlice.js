@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+/* eslint-disable no-param-reassign */
+import { createSlice } from '@reduxjs/toolkit';
 
 export const modalSlice = createSlice({
   name: 'modal',
@@ -7,7 +8,8 @@ export const modalSlice = createSlice({
       type: null,
       target: null,
     },
-  },reducers: {
+  },
+  reducers: {
     modalOpen: (state, { payload }) => {
       state.modal.type = payload.type;
       state.modal.target = payload.target;

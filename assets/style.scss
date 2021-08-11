@@ -23,18 +23,6 @@ body {
   cursor: pointer;
 }
 
-.desc-function__button {
-  background-color: steelblue;
-
-  &:hover {
-    background-color: darken(steelblue, 10%);
-  }
-
-  &:active {
-    background-color: darken(steelblue, 20%);
-  }
-}
-
 .visually-hidden:not(:focus):not(:active),
 input[type="checkbox"].visually-hidden,
 input[type="radio"].visually-hidden {
@@ -51,8 +39,8 @@ input[type="radio"].visually-hidden {
 
 .contacts__wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   margin-top: 20px;
 }
 
@@ -60,6 +48,10 @@ input[type="radio"].visually-hidden {
   width: 700px;
   margin: 0 auto;
   margin-top: 40px;
+}
+
+.contacts__content {
+  height: 70vh;
 }
 
 .contacts__title {
@@ -70,6 +62,9 @@ input[type="radio"].visually-hidden {
 }
 
 .contacts-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
 
@@ -91,7 +86,7 @@ input[type="radio"].visually-hidden {
 
 .contacts-list__text {
   margin: 0;
-  margin-right: 100px;
+  margin-right: 65px;
   margin-bottom: 5px;
   padding: 0;
 }
@@ -136,6 +131,20 @@ input[type="radio"].visually-hidden {
   &:active {
     color: darken(tomato, 20%);
     border-bottom-color: darken(tomato, 20%);
+  }
+}
+
+.desc-function__button {
+  min-width: 320px;
+
+  background-color: steelblue;
+
+  &:hover {
+    background-color: darken(steelblue, 10%);
+  }
+
+  &:active {
+    background-color: darken(steelblue, 20%);
   }
 }
 
