@@ -3,32 +3,33 @@ import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 import { modalClose } from '../slices/modalSlice.js';
 import getForm from './Forms/index.jsx';
+import { modalSelector } from '../slices/selectors.js';
+
+const getFormTitle = (type) => {
+  const titles = {
+    adding: 'Новая запись',
+    renaming: 'Редактировать',
+    removing: 'Удалить',
+  };
+
+  return titles[type];
+};
+
+const renderForm = (type, hideModal) => {
+  if (!type) {
+    return null;
+  }
+
+  const Form = getForm(type);
+  return <Form onHide={hideModal} />;
+};
 
 const Modal = () => {
   const dispatch = useDispatch();
-  const { modal } = useSelector((state) => state.modal);
+  const { modal } = useSelector(modalSelector);
 
   const hideModal = () => {
     dispatch(modalClose());
-  };
-
-  const renderForm = (type) => {
-    if (!type) {
-      return null;
-    }
-
-    const Form = getForm(type);
-    return <Form onHide={hideModal} />;
-  };
-
-  const getFormTitle = (type) => {
-    const titles = {
-      adding: 'Новая запись',
-      renaming: 'Редактировать',
-      removing: 'Удалить',
-    };
-
-    return titles[type];
   };
 
   const modalClass = cn('modal', {
@@ -46,7 +47,7 @@ const Modal = () => {
             </button>
           </div>
           <div className="modal__body">
-            {renderForm(modal.type)}
+            {renderForm(modal.type, hideModal)}
           </div>
         </div>
       </div>
