@@ -13,13 +13,13 @@ const buildState = (defaultState) => {
       {
         firstName: 'Vladimir',
         lastName: 'Drannikov',
-        phoneNumber: 77028883633,
+        phoneNumber: '(702) 888 36 33',
         id: getNextId(),
       },
       {
         firstName: 'Yuliya',
         lastName: 'Privolneva',
-        phoneNumber: 77017775896,
+        phoneNumber: '(701) 777 58 96',
         id: getNextId(),
       },
     ],
@@ -69,6 +69,7 @@ export default (app, defaultState = {}) => {
     const contacts = state.contacts.map((c) => (c.id === id
       ? newContact
       : c));
+    state.contacts = contacts;
     reply.code(201).send(contacts);
   });
 
