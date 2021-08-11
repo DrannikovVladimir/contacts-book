@@ -2,7 +2,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { modalOpen } from '../slices/modalSlice.js';
-import contactsSelector from '../slices/selectors.js';
+import { contactsSelector } from '../slices/selectors.js';
 
 const ContactsList = () => {
   const dispatch = useDispatch();

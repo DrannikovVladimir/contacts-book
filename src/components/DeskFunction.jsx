@@ -16,7 +16,7 @@ const DeskFunction = () => {
         className="desc-function__button btn"
         type="button"
       >
-        Добавить новый контакт
+        Новый контакт
       </button>
     </div>
   );

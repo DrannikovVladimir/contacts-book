@@ -14,7 +14,7 @@ const Navbar = () => {
         <b>{user.username}</b>
       </p>
       )}
-      {user ? <a href="/login" onClick={logOut} className="navbar__link">Выход</a> : null}
+      {user ? <button type="button" onClick={logOut} className="navbar__button btn">Выход</button> : null}
     </div>
   );
 };

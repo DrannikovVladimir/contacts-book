@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,26 +14,39 @@ import LoginPage from './LoginPage.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 import Modal from './Modal.jsx';
 
+const getUserData = (data) => {
+  if (!data) {
+    return null;
+  }
+
+  return {
+    token: data.token,
+    username: data.username,
+  };
+};
+
 const UserProvider = ({ children }) => {
   const currentUser = JSON.parse(localStorage.getItem('userId'));
-  console.log(currentUser);
-  const [user, setUser] = useState(currentUser);
+
   const getAuthHeader = () => {
-    if (user?.token) {
-      return { Authorization: `Bearer ${user?.token}` };
+    if (currentUser?.token) {
+      return { Authorization: `Bearer ${currentUser?.token}` };
     }
 
     return {};
   };
-  const logIn = (userdata) => {
+
+  const [user, setUser] = useState(() => getUserData(currentUser));
+
+  const logIn = useCallback((userdata) => {
     localStorage.setItem('userId', JSON.stringify(userdata));
     setUser(userdata);
-  };
-  const logOut = (e) => {
-    e.preventDefault();
+  }, []);
+
+  const logOut = useCallback(() => {
     localStorage.removeItem('userId');
     setUser(null);
-  };
+  }, []);
 
   return (
     <UserContext.Provider value={{
