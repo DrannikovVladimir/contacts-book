@@ -19,4 +19,4 @@ $ make start
 ```
 ## Used   
    
-To enter the application username and password - **admin**   
+**admin** - username and password.  
