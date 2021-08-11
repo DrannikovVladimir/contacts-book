@@ -1,8 +1,30 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .btn {
@@ -23,24 +45,9 @@ body {
   cursor: pointer;
 }
 
-.visually-hidden:not(:focus):not(:active),
-input[type="checkbox"].visually-hidden,
-input[type="radio"].visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
 .contacts__wrapper {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   margin-top: 20px;
 }
 
@@ -48,6 +55,8 @@ input[type="radio"].visually-hidden {
   width: 700px;
   margin: 0 auto;
   margin-top: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .contacts__content {
@@ -73,9 +82,9 @@ input[type="radio"].visually-hidden {
 
 .contacts-list__item {
   display: flex;
-  min-width: 280px;
+  min-width: 480px;
   margin-bottom: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   border-bottom: 1px solid #ececec;
 }
 
@@ -134,8 +143,12 @@ input[type="radio"].visually-hidden {
   }
 }
 
+.desc-function {
+  margin-left: auto;
+}
+
 .desc-function__button {
-  min-width: 320px;
+  min-width: 200px;
 
   background-color: steelblue;
 
@@ -214,12 +227,16 @@ input[type="radio"].visually-hidden {
   display: block;
 }
 
+.form-search {
+  width: 100%;
+}
+
 .form-search__group {
   display: flex;
 }
 
 .form-search__input {
-  min-width: 320px;
+  flex-grow: 2;
   margin-right: 20px;
   padding: 10px 10px;
   border: 1px solid #888888;
@@ -366,21 +383,18 @@ input[type="radio"].visually-hidden {
   margin: 0;
 }
 
-.navbar__link {
-  border-bottom: 1px solid transparent;
-  font-size: 16px;
-  line-height: 24px;
+.navbar__button {
+  border: none;
+  background-color: #eeeeee;
+
   color: #444444;
-  text-transform: uppercase;
-  text-decoration: none;
 
   &:hover {
-    border-bottom-color: #444444;
+    background-color: darken(#eeeeee, 10%);
   }
 
   &:active {
-    color: lighten(#444444, 30%);
-    border-bottom-color: lighten(#444444, 30%);
+    background-color: darken(#eeeeee, 20%);
   }
 }
 
@@ -459,7 +473,7 @@ input[type="radio"].visually-hidden {
   left: 50%;
   transform: translateX(-50%);
 
-  min-width: 300px;
+  min-width: 380px;
   padding: 40px 40px;
 
   background-color: #fff;
