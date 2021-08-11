@@ -46,18 +46,18 @@ input[type="radio"].visually-hidden {
   cursor: pointer;
 }
 
-.contacts__wrapper {
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-}
-
 .contacts__container {
   width: 700px;
   margin: 0 auto;
   margin-top: 40px;
   padding-left: 50px;
   padding-right: 50px;
+}
+
+.contacts__wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .contacts__title {
@@ -548,8 +548,17 @@ input[type="radio"].visually-hidden {
   }
 
   .desc-function {
+    width: 100%;
     margin-left: 0;
     margin-bottom: 20px;
+  }
+
+  .desc-function__button {
+    width: 100%;
+  }
+
+  .navbar__button {
+    width: 100%;
   }
 
   .form-search__input {
