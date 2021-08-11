@@ -29,7 +29,7 @@ const ContactsPage = () => {
 
   return (
     <div className="contacts__content">
-      <div className="contacts__wrapper">
+      <div className="contacts__wrapper contacts__wrapper--search">
         <SearchForm />
         <DeskFunction />
       </div>

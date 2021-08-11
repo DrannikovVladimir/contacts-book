@@ -31,7 +31,7 @@ const RemoveForm = ({ onHide }) => {
           {lastName}
         </b>
         {' '}
-        изсписка контактов?
+        из&nbsp;списка&nbsp;контактов?
       </p>
       <div className="form-remove__button-wrapper">
         <button

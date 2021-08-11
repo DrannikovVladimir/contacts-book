@@ -8,7 +8,7 @@ const Navbar = () => {
     <div className="contacts__navbar navbar">
       <h2 className="navbar__title">Книга контактов</h2>
       {user && (
-      <p>
+      <p className="navbar__user">
         Пользователь:
         {' '}
         <b>{user.username}</b>
