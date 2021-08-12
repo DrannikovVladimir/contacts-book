@@ -28,6 +28,7 @@ const RemoveForm = ({ onHide }) => {
         {' '}
         <b>
           {firstName}
+          {' '}
           {lastName}
         </b>
         {' '}
