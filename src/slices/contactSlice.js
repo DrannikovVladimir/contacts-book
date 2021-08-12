@@ -30,12 +30,15 @@ export const contactsSlice = createSlice({
     },
     searchContact: (state, { payload }) => {
       const { value } = payload;
-      console.log(value);
       state.filteredContacts = [];
       state.status = 'filtered';
-      state.filteredContacts = state.contacts.filter(({ firstName, lastName }) => {
-        const generalName = `${firstName}${lastName}`;
-        return generalName.toLowerCase().includes(value.replace(/\s/g, '').toLowerCase());
+      state.filteredContacts = state.contacts.filter(({ firstName, lastName, phoneNumber }) => {
+        const lastFirstName = `${lastName}${firstName}${phoneNumber
+          .replace(/\s/g, '').replace('(', '').replace(')', '')}`;
+        const firstLastName = `${firstName}${lastName}${phoneNumber
+          .replace(/\s/g, '').replace('(', '').replace(')', '')}`;
+        return firstLastName.toLowerCase().includes(value.replace(/\s/g, '').toLowerCase())
+          || lastFirstName.toLowerCase().includes(value.replace(/\s/g, '').toLowerCase());
       });
     },
   },
