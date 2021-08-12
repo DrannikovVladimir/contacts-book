@@ -12,8 +12,12 @@ const SearchForm = () => {
     dispatch(searchContact({ value: e.target.value }));
   };
 
+  const handleForm = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <form className="form-search">
+    <form onSubmit={handleForm} className="form-search">
       <div className="form-search__group">
         <label htmlFor="search" className="visually-hidden">Искать</label>
         <input
