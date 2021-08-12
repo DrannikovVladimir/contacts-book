@@ -41,15 +41,15 @@ const AddForm = ({ onHide }) => {
   });
 
   const classFirstName = cn('form-add__input', {
-    'form-add__input--error': formik.errors.firstName,
+    'form-add__input--error': formik.errors.firstName && formik.touched.firstName,
   });
 
   const classLastName = cn('form-add__input', {
-    'form-add__input--error': formik.errors.lastName,
+    'form-add__input--error': formik.errors.lastName && formik.touched.lastName,
   });
 
   const classPhoneNumber = cn('form-add__input', {
-    'form-add__input--error': formik.errors.phoneNumber,
+    'form-add__input--error': formik.errors.phoneNumber && formik.touched.phoneNumber,
   });
 
   useEffect(() => {
