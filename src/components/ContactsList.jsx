@@ -17,7 +17,15 @@ const ContactsList = () => {
 
   return (
     <ul className="contacts-list">
-      {contactsList.map(({
+      {contactsList.slice().sort((a, b) => {
+        if (a.lastName < b.lastName) {
+          return -1;
+        }
+        if (a.lastName > b.lastName) {
+          return 1;
+        }
+        return 0;
+      }).map(({
         firstName,
         lastName,
         phoneNumber,
