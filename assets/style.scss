@@ -46,10 +46,48 @@ input[type="radio"].visually-hidden {
   cursor: pointer;
 }
 
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar__title {
+  margin: 0;
+}
+
+.navbar__user {
+  margin: 0;
+  margin-left: auto;
+}
+
+.navbar__button {
+  margin-left: auto;
+  border: none;
+  background-color: #eeeeee;
+
+  color: #444444;
+
+  &:hover {
+    background-color: darken(#eeeeee, 10%);
+  }
+
+  &:active {
+    background-color: darken(#eeeeee, 20%);
+  }
+}
+
+.contacts {
+  height: 100vh;
+}
+
 .contacts__container {
+  display: flex;
+  flex-direction: column;
   width: 700px;
+  height: 100%;
   margin: 0 auto;
-  margin-top: 40px;
+  padding-top: 40px;
   padding-left: 50px;
   padding-right: 50px;
 }
@@ -72,6 +110,7 @@ input[type="radio"].visually-hidden {
   flex-direction: column;
   flex-wrap: wrap;
   margin: 0;
+  margin-bottom: 60px;
   padding: 0;
 
   list-style: none;
@@ -379,35 +418,25 @@ input[type="radio"].visually-hidden {
   }
 }
 
-.navbar {
+.footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-}
-
-.navbar__title {
-  margin: 0;
-}
-
-.navbar__user {
-  margin: 0;
-  margin-left: auto;
-}
-
-.navbar__button {
-  margin-left: auto;
-  border: none;
+  margin-top: auto;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  padding-right: 20px;
   background-color: #eeeeee;
+}
 
-  color: #444444;
+.footer__copyright,
+.footer__author {
+  margin: 0;
 
-  &:hover {
-    background-color: darken(#eeeeee, 10%);
-  }
-
-  &:active {
-    background-color: darken(#eeeeee, 20%);
-  }
+  font-size: 14px;
+  line-height: 20px;
+  color: #888888;
 }
 
 .modal {
@@ -501,14 +530,18 @@ input[type="radio"].visually-hidden {
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 600px) {
   .contacts__container {
     padding-left: 20px;
     padding-right: 20px;
   }
+
+  .contacts-list {
+    flex-grow: 1;
+  }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 530px) {
   .navbar {
     flex-direction: column;
   }
@@ -525,10 +558,6 @@ input[type="radio"].visually-hidden {
   .navbar__button {
     min-width: 200px;
     margin: 0;
-  }
-
-  .contacts-list {
-    flex-grow: 1;
   }
 
   .contacts-list__text-wrapper {
@@ -601,6 +630,10 @@ input[type="radio"].visually-hidden {
 
   .form-remove__text {
     width: 280px;
+  }
+
+  .footer {
+    flex-direction: column;
   }
 }
 
