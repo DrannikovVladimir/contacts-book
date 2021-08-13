@@ -3,6 +3,7 @@
 import 'core-js/stable/index.js';
 import 'regenerator-runtime/runtime.js';
 
+import '../assets/normalize.scss';
 import '../assets/style.scss';
 import '../assets/toast/main.scss';
 import { render } from 'react-dom';

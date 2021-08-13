@@ -54,7 +54,7 @@ const ContactsList = () => {
               <p className="contacts-list__text">
                 {lastName}{' '}{firstName}
               </p>
-              <p className="contacts-list__text">
+              <p className="contacts-list__text contacts-list__text--phone">
                 +7{' '}
                 {phoneNumber}
               </p>

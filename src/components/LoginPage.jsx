@@ -60,7 +60,7 @@ const LoginPage = () => {
 
   return (
     <div className="form-login__wrapper">
-      <h3 className="form-login__title">Войти</h3>
+      <h3 className="visually-hidden">Войти</h3>
       <form className="form-login" onSubmit={formik.handleSubmit}>
         <div className="form-login__group">
           <label className="form-login__label" htmlFor="name">Имя пользователя</label>
