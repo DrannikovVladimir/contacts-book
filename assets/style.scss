@@ -256,17 +256,11 @@ input[type="radio"].visually-hidden {
 }
 
 .form-login__feedback {
-  display: none;
-  margin-bottom: 10px;
-  margin-top: -10px;
+  margin-top: 5px;
 
   font-size: 14px;
   line-height: 16px;
   color: tomato;
-}
-
-.form-login__feedback--show {
-  display: block;
 }
 
 .form-search {

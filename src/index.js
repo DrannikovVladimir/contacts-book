@@ -4,7 +4,7 @@ import 'core-js/stable/index.js';
 import 'regenerator-runtime/runtime.js';
 
 import '../assets/style.scss';
-import '../assets/scss/main.scss';
+import '../assets/toast/main.scss';
 import { render } from 'react-dom';
 
 import init from './init.jsx';

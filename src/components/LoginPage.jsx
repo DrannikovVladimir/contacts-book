@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { useFormik } from 'formik';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import * as Yup from 'yup';
 import axios from 'axios';
 import cn from 'classnames';
 
@@ -18,6 +19,10 @@ const LoginPage = () => {
       username: '',
       password: '',
     },
+    validationSchema: Yup.object().shape({
+      username: Yup.string().required('Обязательное поле'),
+      password: Yup.string().required('Обязательное поле'),
+    }),
     onSubmit: async (values, actions) => {
       actions.setStatus(false);
       try {
@@ -41,12 +46,12 @@ const LoginPage = () => {
     },
   });
 
-  const classFeedback = cn('form-login__feedback', {
-    'form-login__feedback--show': formik.status,
+  const classInputUsername = cn('form-login__input', {
+    'form-login__input--error': (formik.errors.username && formik.touched.username) || formik.status,
   });
 
-  const classInput = cn('form-login__input', {
-    'form-login__input--error': formik.status,
+  const classInputPassword = cn('form-login__input', {
+    'form-login__input--error': (formik.errors.password && formik.touched.password) || formik.status,
   });
 
   useEffect(() => {
@@ -60,7 +65,7 @@ const LoginPage = () => {
         <div className="form-login__group">
           <label className="form-login__label" htmlFor="name">Имя пользователя</label>
           <input
-            className={classInput}
+            className={classInputUsername}
             id="name"
             name="username"
             type="text"
@@ -69,11 +74,12 @@ const LoginPage = () => {
             ref={inputRef}
             disabled={formik.isSubmitting}
           />
+          {formik.errors.username && formik.touched.username && <div className="form-login__feedback">{formik.errors.username}</div>}
         </div>
         <div className="form-login__group">
           <label className="form-login__label" htmlFor="password">Пароль</label>
           <input
-            className={classInput}
+            className={classInputPassword}
             id="password"
             name="password"
             type="password"
@@ -81,8 +87,9 @@ const LoginPage = () => {
             value={formik.values.password}
             disabled={formik.isSubmitting}
           />
+          {formik.errors.password && formik.touched.password && <div className="form-login__feedback">{formik.errors.password}</div>}
         </div>
-        <div className={classFeedback}>Неправильные имя пользователя или пароль</div>
+        {(formik.status && (!formik.errors.username && !formik.errors.password)) && <div className="form-login__feedback">Неправильные имя пользователя или пароль</div>}
         <button
           className="form-login__button"
           type="submit"
