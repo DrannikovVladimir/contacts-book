@@ -5,6 +5,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import UserContext from '../contexts/index.jsx';
 import useUser from '../hooks/index.jsx';
@@ -88,6 +89,7 @@ const App = () => (
           </Switch>
         </Router>
         <Footer />
+        <ToastContainer />
         <Modal />
       </UserProvider>
     </div>

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import cn from 'classnames';
 import InputMask from 'react-input-mask';
+import { toast } from 'react-toastify';
 
 import { renameContact } from '../../slices/contactSlice.js';
 import routes from '../../routes.js';
@@ -45,8 +46,8 @@ const RenameForm = ({ onHide }) => {
         onHide();
       } catch (err) {
         actions.setStatus(true);
-        inputRef.current.select();
-        throw new Error('err');
+        toast.error('Ошибка сети');
+        throw err;
       }
     },
   });

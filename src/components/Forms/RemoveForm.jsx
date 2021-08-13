@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
 import { removeContact } from '../../slices/contactSlice';
 import routes from '../../routes';
 import { modalSelector } from '../../slices/selectors.js';
@@ -17,7 +19,8 @@ const RemoveForm = ({ onHide }) => {
       onHide();
     } catch (err) {
       console.log(err);
-      throw new Error(err);
+      toast.error('Ошибка сети');
+      throw err;
     }
   };
 

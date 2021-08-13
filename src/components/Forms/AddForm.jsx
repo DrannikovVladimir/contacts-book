@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import cn from 'classnames';
 import InputMask from 'react-input-mask';
+import { toast } from 'react-toastify';
 
 import { addContact } from '../../slices/contactSlice.js';
 import router from '../../routes.js';
@@ -34,8 +35,8 @@ const AddForm = ({ onHide }) => {
         onHide();
       } catch (err) {
         actions.setStatus(true);
-        inputRef.current.select();
-        throw new Error(err);
+        toast.error('Ошибка сети');
+        throw err;
       }
     },
   });

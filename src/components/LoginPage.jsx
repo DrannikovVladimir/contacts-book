@@ -2,8 +2,10 @@
 import React, { useEffect, useRef } from 'react';
 import { useFormik } from 'formik';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 import cn from 'classnames';
+
 import useUser from '../hooks/index.jsx';
 import routes from '../routes.js';
 
@@ -19,15 +21,20 @@ const LoginPage = () => {
     onSubmit: async (values, actions) => {
       actions.setStatus(false);
       try {
-        const { data } = await axios.post(routes.loginPath(), values);
+        const { data } = await axios.post(routes.loginPath(), values, { timeout: 5000 });
         user.logIn(data);
         history.push('/');
         actions.resetForm();
       } catch (err) {
-        if (err.response.status === 401) {
-          actions.setStatus(true);
-          inputRef.current.select();
-          return;
+        console.log(err.response);
+        if (err.response) {
+          if (err.response.status === 401) {
+            actions.setStatus(true);
+          } else if (err.response.status === 404) {
+            toast.error('Ошибка запроса');
+          }
+        } else {
+          toast.error('Ошибка сети');
         }
         throw err;
       }
