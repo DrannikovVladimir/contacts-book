@@ -475,6 +475,14 @@ input[type="radio"].visually-hidden {
   background-color: transparent;
 
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
 }
 
 .modal__close::before {
@@ -486,7 +494,7 @@ input[type="radio"].visually-hidden {
   height: 2px;
   transform: rotate(45deg);
 
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #444444;
 }
 
 .modal__close::after {
