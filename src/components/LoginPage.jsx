@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useFormik } from 'formik';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -14,6 +14,7 @@ const LoginPage = () => {
   const user = useUser();
   const inputRef = useRef();
   const history = useHistory();
+  const [help, setHelp] = useState(false);
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -31,7 +32,6 @@ const LoginPage = () => {
         history.push('/');
         actions.resetForm();
       } catch (err) {
-        console.log(err.response);
         if (err.response) {
           if (err.response.status === 401) {
             actions.setStatus(true);
@@ -46,12 +46,20 @@ const LoginPage = () => {
     },
   });
 
+  const hanldeButtonHelp = () => {
+    setHelp(!help);
+  };
+
   const classInputUsername = cn('form-login__input', {
     'form-login__input--error': (formik.errors.username && formik.touched.username) || formik.status,
   });
 
   const classInputPassword = cn('form-login__input', {
     'form-login__input--error': (formik.errors.password && formik.touched.password) || formik.status,
+  });
+
+  const classHelp = cn('form-login__help', {
+    'form-login__help--open': help,
   });
 
   useEffect(() => {
@@ -90,14 +98,35 @@ const LoginPage = () => {
           {formik.errors.password && formik.touched.password && <div className="form-login__feedback">{formik.errors.password}</div>}
         </div>
         {(formik.status && (!formik.errors.username && !formik.errors.password)) && <div className="form-login__feedback">Неправильные имя пользователя или пароль</div>}
-        <button
-          className="form-login__button"
-          type="submit"
-          disabled={formik.isSubmitting}
-        >
-          Войти
-        </button>
+        <div className="form-login__button-wrapper">
+          <button
+            className="form-login__button"
+            type="submit"
+            disabled={formik.isSubmitting}
+          >
+            Войти
+          </button>
+          <button
+            onClick={hanldeButtonHelp}
+            className="form-login__button-help"
+            type="button"
+          >
+            ?
+          </button>
+        </div>
       </form>
+      <div className={classHelp}>
+        <p className="form-login__help-text">
+          Имя пользователя:
+          {' '}
+          <b>admin</b>
+        </p>
+        <p className="form-login__help-text">
+          Пароль:
+          {' '}
+          <b>admin</b>
+        </p>
+      </div>
     </div>
   );
 };

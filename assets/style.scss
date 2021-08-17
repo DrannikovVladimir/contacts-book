@@ -255,9 +255,15 @@ input[type="radio"].visually-hidden {
   border-color: $btnDanger;
 }
 
+.form-login__button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+
 .form-login__button {
-  min-width: 150px;
-  margin-top: 10px;
+  min-width: 180px;
   padding: 15px 20px;
   border: none;
   border-radius: 5px;
@@ -266,6 +272,37 @@ input[type="radio"].visually-hidden {
   text-transform: uppercase;
   color: $primaryColor;
   background-color: $btnSuccess;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($btnSuccess, 10%);
+  }
+
+  &:active {
+    background-color: darken($btnSuccess, 20%);
+  }
+}
+
+.form-login__button-help {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+
+  font-size: 16px;
+  color: $btnSuccess;
+
+  background-color: $btnCancel;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($btnCancel, 10%);
+  }
+
+  &:active {
+    background-color: darken($btnCancel, 20%);
+  }
 }
 
 .form-login__feedback {
@@ -274,6 +311,24 @@ input[type="radio"].visually-hidden {
   font-size: 14px;
   line-height: 16px;
   color: $btnDanger;
+}
+
+.form-login__help {
+  display: none;
+  margin-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 1px solid $labelColor;
+  border-radius: 5px;
+}
+
+.form-login__help--open {
+  display: block;
+}
+
+.form-login__help-text {
+  text-align: center;
+  color: $secondaryColor;
 }
 
 .form-search {
