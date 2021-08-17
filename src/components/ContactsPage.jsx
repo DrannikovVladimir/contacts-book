@@ -7,6 +7,7 @@ import useUser from '../hooks/index.jsx';
 import ContactsList from './ContactsList.jsx';
 import DeskFunction from './DeskFunction.jsx';
 import SearchForm from './Forms/SearchForm.jsx';
+import Footer from './Footer.jsx';
 import routes from '../routes.js';
 
 const ContactsPage = () => {
@@ -36,6 +37,7 @@ const ContactsPage = () => {
       <div className="contacts__wrapper">
         <ContactsList />
       </div>
+      <Footer />
     </div>
   );
 };

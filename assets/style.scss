@@ -101,6 +101,12 @@ input[type="radio"].visually-hidden {
   padding-right: 50px;
 }
 
+.contacts__content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .contacts__wrapper {
   display: flex;
   align-items: center;
@@ -632,6 +638,18 @@ input[type="radio"].visually-hidden {
     margin: 0;
   }
 
+  .contacts__wrapper--search {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .desc-function {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
   .contacts-list__text-wrapper {
     display: flex;
     flex-direction: column;
@@ -647,17 +665,8 @@ input[type="radio"].visually-hidden {
 }
 
 @media (max-width: 460px) {
-  .contacts__wrapper--search {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-  }
-
   .desc-function {
     width: 100%;
-    margin-left: 0;
-    margin-bottom: 20px;
   }
 
   .desc-function__button {

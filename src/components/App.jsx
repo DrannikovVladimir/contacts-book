@@ -14,7 +14,6 @@ import ContactsPage from './ContactsPage.jsx';
 import LoginPage from './LoginPage.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 import Modal from './Modal.jsx';
-import Footer from './Footer.jsx';
 
 const getUserData = (data) => {
   if (!data) {
@@ -88,7 +87,6 @@ const App = () => (
             </Route>
           </Switch>
         </Router>
-        <Footer />
         <ToastContainer />
         <Modal />
       </UserProvider>
