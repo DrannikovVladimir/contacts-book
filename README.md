@@ -20,3 +20,13 @@ $ make start
 ## Used   
    
 **admin** - username and password.  
+   
+## Libraries used  
+
+* React   
+* Redux Toolkit   
+* Formik   
+* React Router Dom   
+* SCSS   
+* Soket.io   
+* i18next
