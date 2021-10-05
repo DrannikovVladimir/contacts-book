@@ -1,21 +1,25 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
 import { modalOpen } from '../slices/modalSlice.js';
 import { contactsSelector } from '../slices/selectors.js';
 
 const getFeedback = (status) => {
+  const { t } = useTranslation();
   switch (status) {
     case 'default':
-      return <p className="contacts-list__feedback">Список контактов пуст</p>;
+      return <p className="contacts-list__feedback">{t('contactsList.emptyList')}</p>;
     case 'filtered':
-      return <p className="contacts-list__feedback">Ничего не найдено</p>;
+      return <p className="contacts-list__feedback">{t('contactsList.emptySearch')}</p>;
     default:
       throw new Error(`Unknown status ${status}`);
   }
 };
 
 const ContactsList = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { contacts, filteredContacts, status } = useSelector(contactsSelector);
 
@@ -70,14 +74,14 @@ const ContactsList = () => {
                 })}
                 className="contacts-list__link contacts-list__link--edit"
               >
-                Редактировать
+                {t('contactsList.buttonEdit')}
               </a>
               <a
                 href="/remove"
                 onClick={showModal('removing', { lastName, firstName, id })}
                 className="contacts-list__link contacts-list__link--remove"
               >
-                Удалить
+                {t('contactsList.buttonRemove')}
               </a>
             </div>
           </li>

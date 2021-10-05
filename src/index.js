@@ -14,7 +14,6 @@ if (process.env.NODE_ENV !== 'production') {
   localStorage.debug = 'contacts:*';
 }
 
-render(
-  init(),
-  document.querySelector('#root'),
-);
+init().then((vdom) => {
+  render(vdom, document.querySelector('#root'));
+});

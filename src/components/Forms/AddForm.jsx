@@ -6,12 +6,14 @@ import axios from 'axios';
 import cn from 'classnames';
 import InputMask from 'react-input-mask';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 import { addContact } from '../../slices/contactSlice.js';
 import router from '../../routes.js';
 import validationSchema from '../../validate.js';
 
 const AddForm = ({ onHide }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const inputRef = useRef();
   const formik = useFormik({
@@ -35,7 +37,7 @@ const AddForm = ({ onHide }) => {
         onHide();
       } catch (err) {
         actions.setStatus(true);
-        toast.error('Ошибка сети');
+        toast.error(t('toast.toastErrorNet'));
         throw err;
       }
     },
@@ -60,7 +62,7 @@ const AddForm = ({ onHide }) => {
   return (
     <form className="form-add" onSubmit={formik.handleSubmit}>
       <div className="form-add__group">
-        <label className="form-add__label" htmlFor="firstName">Имя</label>
+        <label className="form-add__label" htmlFor="firstName">{t('modal.firstName')}</label>
         <input
           className={classFirstName}
           type="text"
@@ -74,7 +76,7 @@ const AddForm = ({ onHide }) => {
         {formik.errors.firstName && formik.touched.firstName ? <div className="form-add__feedback">{formik.errors.firstName}</div> : null}
       </div>
       <div className="form-add__group">
-        <label className="form-add__label" htmlFor="lastName">Фамилия</label>
+        <label className="form-add__label" htmlFor="lastName">{t('modal.lastName')}</label>
         <input
           className={classLastName}
           type="text"
@@ -87,7 +89,7 @@ const AddForm = ({ onHide }) => {
         {formik.errors.lastName && formik.touched.lastName ? <div className="form-add__feedback">{formik.errors.lastName}</div> : null}
       </div>
       <div className="form-add__group">
-        <label className="form-add__label" htmlFor="phoneNumber">Телефон</label>
+        <label className="form-add__label" htmlFor="phoneNumber">{t('modal.phone')}</label>
         <InputMask
           mask="(999) 999 99 99"
           className={classPhoneNumber}
@@ -107,14 +109,14 @@ const AddForm = ({ onHide }) => {
           type="button"
           disabled={formik.isSubmitting}
         >
-          Отменить
+          {t('modal.buttonCancel')}
         </button>
         <button
           className="btn form-add__button form-add__button--success"
           type="submit"
           disabled={formik.isSubmitting}
         >
-          Добавить
+          {t('modal.buttonAdd')}
         </button>
       </div>
     </form>

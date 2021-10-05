@@ -1,0 +1,50 @@
+export default {
+  translation: {
+    navbar: {
+      title: 'Книга контактов',
+      user: 'Пользователь',
+      buttonExit: 'Выход',
+      search: 'Поиск',
+      buttonNewContact: 'Новый контакт',
+    },
+    loginPage: {
+      title: 'Войти',
+      username: 'Имя пользователя',
+      password: 'Пароль',
+      button: 'Войти',
+      required: 'Обязательное поле',
+      serverError: 'Неправильные имя пользователя или пароль',
+    },
+    toast: {
+      toastErrorNet: 'Ошибка сети',
+      toastErrorRequest: 'Ошибка запроса',
+      key: 'admin',
+    },
+    contactsList: {
+      emptyList: 'Список контактов пуст',
+      emptySearch: 'Ничего не найдено',
+      buttonEdit: 'Редактировать',
+      buttonRemove: 'Удалить',
+    },
+    modal: {
+      addingTitle: 'Новая запись',
+      renamingTitle: 'Редактировать',
+      removingTitle: 'Удалить',
+      close: 'Закрыть',
+      firstName: 'Имя',
+      lastName: 'Фамилия',
+      phone: 'Телефон',
+      buttonCancel: 'Отменить',
+      buttonAdd: 'Добавить',
+      buttonSave: 'Сохранить',
+      buttonRemove: 'Удалить',
+      confirmRemove1: 'Вы хотите удалить',
+      confirmRemove2: 'из списка контактов?',
+    },
+    footer: {
+      year: '2021',
+      copyright: 'copyright',
+      author: 'Владимир Дранников',
+    },
+  },
+};

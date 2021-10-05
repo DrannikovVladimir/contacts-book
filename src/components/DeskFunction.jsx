@@ -1,8 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
 import { modalOpen } from '../slices/modalSlice.js';
 
 const DeskFunction = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const showModal = (type) => () => {
@@ -16,7 +19,7 @@ const DeskFunction = () => {
         className="desc-function__button btn"
         type="button"
       >
-        Новый контакт
+        {t('navbar.buttonNewContact')}
       </button>
     </div>
   );

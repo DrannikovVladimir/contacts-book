@@ -2,12 +2,14 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 import { removeContact } from '../../slices/contactSlice';
 import routes from '../../routes';
 import { modalSelector } from '../../slices/selectors.js';
 
 const RemoveForm = ({ onHide }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { modal: { target } } = useSelector(modalSelector);
   const { firstName, lastName, id } = target;
@@ -19,7 +21,7 @@ const RemoveForm = ({ onHide }) => {
       onHide();
     } catch (err) {
       console.log(err);
-      toast.error('Ошибка сети');
+      toast.error(t('toast.toastErrorNet'));
       throw err;
     }
   };
@@ -27,7 +29,7 @@ const RemoveForm = ({ onHide }) => {
   return (
     <div className="form-remove">
       <p className="form-remove__text">
-        Вы хотите удалить
+        {t('modal.confirmRemove1')}
         {' '}
         <b>
           {firstName}
@@ -35,7 +37,7 @@ const RemoveForm = ({ onHide }) => {
           {lastName}
         </b>
         {' '}
-        из&nbsp;списка&nbsp;контактов?
+        {t('modal.confirmRemove2')}
       </p>
       <div className="form-remove__button-wrapper">
         <button
@@ -43,14 +45,14 @@ const RemoveForm = ({ onHide }) => {
           className="btn form-remove__button form form-remove__button--cancel"
           type="button"
         >
-          Отменить
+          {t('modal.buttonCancel')}
         </button>
         <button
           onClick={handleRemove(id)}
           className="btn form-remove__button form-remove__button--remove"
           type="button"
         >
-          Удалить
+          {t('modal.buttonRemove')}
         </button>
       </div>
     </div>
