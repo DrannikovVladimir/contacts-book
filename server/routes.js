@@ -11,21 +11,27 @@ const buildState = (defaultState) => {
   const state = {
     contacts: [
       {
-        firstName: 'Владимир',
-        lastName: 'Дранников',
-        phoneNumber: '(702) 888 36 33',
+        firstName: 'Иван',
+        lastName: 'Иванов',
+        phoneNumber: '(702) 888 33 33',
         id: getNextId(),
       },
       {
-        firstName: 'Юлия',
-        lastName: 'Привольнева',
-        phoneNumber: '(701) 777 58 96',
+        firstName: 'Пётр',
+        lastName: 'Петров',
+        phoneNumber: '(701) 777 99 99',
         id: getNextId(),
       },
       {
-        firstName: 'Виктория',
-        lastName: 'Харламова',
-        phoneNumber: '(777) 556 65 56',
+        firstName: 'Сергей',
+        lastName: 'Сергеев',
+        phoneNumber: '(703) 555 66 66',
+        id: getNextId(),
+      },
+      {
+        firstName: 'Александра',
+        lastName: 'Александрова',
+        phoneNumber: '(705) 222 33 33',
         id: getNextId(),
       },
     ],
