@@ -77,6 +77,8 @@ input[type="radio"].visually-hidden {
 
   color: $secondaryColor;
 
+  transition: 0.2s linear;
+
   &:hover {
     background-color: darken($btnCancel, 10%);
   }
@@ -125,6 +127,7 @@ input[type="radio"].visually-hidden {
   flex-direction: column;
   flex-wrap: wrap;
   margin: 0;
+  margin-top: 20px;
   margin-bottom: 60px;
   padding: 0;
 
@@ -134,9 +137,9 @@ input[type="radio"].visually-hidden {
 .contacts-list__item {
   display: flex;
   min-width: 480px;
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid $placeholderColor;
+  margin-bottom: 12px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid lighten($placeholderColor, 20%);
 }
 
 .contacts-list__number {
@@ -158,22 +161,30 @@ input[type="radio"].visually-hidden {
 .contacts-list__link-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: flex-end;
   margin-left: auto;
 }
 
 .contacts-list__link {
+  display: inline-block;
+  margin-bottom: 3px;
   border-bottom: 1px solid transparent;
+
   font-size: 12px;
   line-height: 18px;
   text-decoration: none;
 
   cursor: pointer;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .contacts-list__link--edit {
   color: $btnSuccess;
+
+  transition: 0.2s linear;
 
   &:hover {
     border-bottom-color: $btnSuccess;
@@ -187,6 +198,8 @@ input[type="radio"].visually-hidden {
 
 .contacts-list__link--remove {
   color: $btnDanger;
+
+  transition: 0.2s linear;
 
   &:hover {
     border-bottom-color: $btnDanger;
@@ -213,6 +226,8 @@ input[type="radio"].visually-hidden {
 
   background-color: $btnSuccess;
 
+  transition: 0.2s linear;
+
   &:hover {
     background-color: darken($btnSuccess, 10%);
   }
@@ -225,7 +240,7 @@ input[type="radio"].visually-hidden {
 .form-login__wrapper {
   width: 300px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px 20px 40px;
 }
 
 .form-login__group {
@@ -281,6 +296,8 @@ input[type="radio"].visually-hidden {
 
   cursor: pointer;
 
+  transition: 0.2s linear;
+
   &:hover {
     background-color: darken($btnSuccess, 10%);
   }
@@ -301,6 +318,8 @@ input[type="radio"].visually-hidden {
   background-color: $btnCancel;
 
   cursor: pointer;
+
+  transition: 0.2s linear;
 
   &:hover {
     background-color: darken($btnCancel, 10%);
@@ -427,6 +446,8 @@ input[type="radio"].visually-hidden {
 .form-add__button--success {
   background-color: $btnSuccess;
 
+  transition: 0.2s linear;
+
   &:hover {
     background-color: darken($btnSuccess, 10%);
   }
@@ -439,6 +460,8 @@ input[type="radio"].visually-hidden {
 .form-add__button--cancel {
   color: $secondaryColor;
   background-color: $btnCancel;
+
+  transition: 0.2s linear;
 
   &:hover {
     background-color: darken($btnCancel, 10%);
@@ -466,6 +489,8 @@ input[type="radio"].visually-hidden {
 .form-remove__button--remove {
   background-color: $btnDanger;
 
+  transition: 0.2s linear;
+
   &:hover {
     background-color: darken($btnDanger, 10%);
   }
@@ -478,6 +503,8 @@ input[type="radio"].visually-hidden {
 .form-remove__button--cancel {
   color: $secondaryColor;
   background-color: $btnCancel;
+
+  transition: 0.2s linear;
 
   &:hover {
     background-color: darken($btnCancel, 10%);
@@ -545,6 +572,8 @@ input[type="radio"].visually-hidden {
   background-color: transparent;
 
   cursor: pointer;
+
+  transition: 0.2s linear;
 
   &:hover {
     opacity: 0.6;
@@ -634,8 +663,12 @@ input[type="radio"].visually-hidden {
   }
 
   .navbar__button {
-    min-width: 200px;
+    width: 100%;
     margin: 0;
+  }
+
+  .form-search__input {
+    margin-right: 0;
   }
 
   .contacts__wrapper--search {
@@ -646,8 +679,13 @@ input[type="radio"].visually-hidden {
   }
 
   .desc-function {
+    width: 100%;
     margin-left: 0;
     margin-bottom: 20px;
+  }
+
+  .desc-function__button {
+    width: 100%;
   }
 
   .contacts-list__text-wrapper {
@@ -661,24 +699,6 @@ input[type="radio"].visually-hidden {
 
   .contacts-list__text {
     margin-right: auto;
-  }
-}
-
-@media (max-width: 460px) {
-  .desc-function {
-    width: 100%;
-  }
-
-  .desc-function__button {
-    width: 100%;
-  }
-
-  .navbar__button {
-    width: 100%;
-  }
-
-  .form-search__input {
-    margin-right: 0;
   }
 }
 
